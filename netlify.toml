@@ -1,22 +1,10 @@
-# ════════════════════════════════════════════════════
-#  UNIVERS HOLE — Configuration Netlify (corrigée)
-# ════════════════════════════════════════════════════
-
 [build]
-  publish   = "."                   # fichiers à la racine du repo
-  functions = "netlify/functions"   # fonctions serverless
+  publish   = "."
+  functions = "netlify/functions"
 
 [functions]
   node_bundler = "esbuild"
 
-# Redirect /api/send-email → fonction Netlify
-[[redirects]]
-  from   = "/api/send-email"
-  to     = "/.netlify/functions/send-email"
-  status = 200
-  force  = true
-
-# Headers de sécurité
 [[headers]]
   for = "/*"
   [headers.values]

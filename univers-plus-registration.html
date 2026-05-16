@@ -618,8 +618,7 @@ registrationForm.addEventListener('submit', async (e) => {
 // ── BREVO VIA BACKEND SÉCURISÉ ──────────────────────
 // La clé API est protégée dans send-email.php côté serveur.
 // En local : pointe vers le fichier PHP sur ton hébergement.
-const BACKEND_URL = '/api/send-email'; // ✅ Netlify & Vercel serverless function
-
+const BACKEND_URL = '/.netlify/functions/send-email';
 async function sendEmailNotification(user, totalUsers) {
   try {
     const response = await fetch(BACKEND_URL, {
