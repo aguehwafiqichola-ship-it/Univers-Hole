@@ -4,7 +4,7 @@
 # ════════════════════════════════════════════════════
 
 [build]
-  publish   = "public"         # dossier des fichiers HTML/CSS/JS
+  publish   = "/"         # dossier des fichiers HTML/CSS/JS
   functions = "netlify/functions"  # dossier des fonctions serverless
 
 # Redirects : les appels /api/send-email → fonction Netlify
