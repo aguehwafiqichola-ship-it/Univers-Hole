@@ -1,0 +1,31 @@
+# ════════════════════════════════════════════════════
+#  UNIVERS HOLE — Configuration Netlify
+#  Fichier : netlify.toml
+# ════════════════════════════════════════════════════
+
+[build]
+  publish   = "public"         # dossier des fichiers HTML/CSS/JS
+  functions = "netlify/functions"  # dossier des fonctions serverless
+
+# Redirects : les appels /api/send-email → fonction Netlify
+[[redirects]]
+  from   = "/api/send-email"
+  to     = "/.netlify/functions/send-email"
+  status = 200
+
+# SPA fallback (utile si tu ajoutes un router plus tard)
+[[redirects]]
+  from   = "/*"
+  to     = "/index.html"
+  status = 200
+
+[functions]
+  node_bundler = "esbuild"
+
+# Headers de sécurité
+[[headers]]
+  for = "/*"
+  [headers.values]
+    X-Frame-Options        = "DENY"
+    X-Content-Type-Options = "nosniff"
+    Referrer-Policy        = "strict-origin-when-cross-origin"
